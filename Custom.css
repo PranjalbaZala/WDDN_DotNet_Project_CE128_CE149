@@ -52,3 +52,36 @@
     cursor: pointer;
     width: 10%;
 }
+.class3 {
+    background: #1877f2;
+    border: 1px solid #1877f2;
+    color: #fff;
+    font-size: 2rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    width: 10%;
+}
+.class4 {
+    border-radius: 8px;
+    border: 2px solid #dddfe2;
+    outline: none;
+    color: #1d2129;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    width: 80%;
+    font-size: 2rem;
+}
+.class5 {
+    
+    
+    width: 30%;
+}
+.mydatagrid {
+    width: 80%;
+    border: solid 2px black;
+    min-width: 80%;
+    font-size: 15px;
+}
