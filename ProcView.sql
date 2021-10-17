@@ -1,0 +1,5 @@
+CREATE PROC BookView
+AS
+	BEGIN
+	SELECT * FROM BookDetail
+END
