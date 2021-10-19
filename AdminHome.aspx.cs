@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
 
-
-namespace BookStore
+namespace OnlineBookStoreProject
 {
     public partial class AdminHome : System.Web.UI.Page
     {
@@ -18,10 +17,10 @@ namespace BookStore
         {
             if (Session["AUsername"] != null)
             {
-                lblSuccess.Text = "Welcome Admin";
-                
-                 FillGridView();
-                
+                lblSuccess.Text = "Welcome to Admin's Home Page";
+
+                FillGridView();
+
             }
             else
             {
@@ -31,25 +30,9 @@ namespace BookStore
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            /*using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["BookstoreDB"].ConnectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("BookCreateOrUpdate",con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@BookID", (hfBookID.Value == "" ? 0 : Convert.ToInt32(hfBookID.Value)));
-                cmd.Parameters.AddWithValue("@BookNo", txtBookNo.Text.Trim());
-                cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim());
-                cmd.Parameters.AddWithValue("@Category", txtCategory.Text.Trim());
-                cmd.ExecuteNonQuery();
-                con.Close();
-                if (hfBookID.Value == "")
-                    lblSuccessMessage.Text = "Saved Successfully";
-                else
-                    lblSuccessMessage.Text = "Updated Successfully";
-            }*/
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            SqlCommand cmd = new SqlCommand("BookCreateOrUpdate",con);
+            SqlCommand cmd = new SqlCommand("BookCreateOrUpdate", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@BookID", (hfBookID.Value == "" ? 0 : Convert.ToInt32(hfBookID.Value)));
             cmd.Parameters.AddWithValue("@BookNo", txtBookNo.Text.Trim());
@@ -67,7 +50,21 @@ namespace BookStore
                 lblSuccessMessage.Text = "Updated Successfully";
             FillGridView();
         }
-        void FillGridView()
+        public void Clear()
+        {
+            hfBookID.Value = "";
+            txtBookNo.Text = txtName.Text = txtCategory.Text = txtPrice.Text = "";
+            lblSuccessMessage.Text = lblErrorMessage.Text = "";
+            btnSave.Text = "Save";
+            //btnDelete.Enabled = false;
+        }
+
+        public void btnClear_Click(object sender, EventArgs e)
+        {
+            txtBookNo.Text = txtName.Text = txtCategory.Text = txtPrice.Text = "";
+        }
+
+        private void FillGridView()
         {
             if (con.State == ConnectionState.Closed)
                 con.Open();
@@ -78,20 +75,20 @@ namespace BookStore
             con.Close();
             gvBook.DataSource = dtbl;
             gvBook.DataBind();
-
         }
-        protected void btnClear_Click(object sender, EventArgs e)
+
+        protected void btnDelete_Click(object sender, EventArgs e)
         {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlCommand sqlCmd = new SqlCommand("BookDeleteByID", con);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.AddWithValue("@BookID", Convert.ToInt32(hfBookID.Value));
+            sqlCmd.ExecuteNonQuery();
+            con.Close();
             Clear();
-        }
-
-        public void Clear()
-        {
-            hfBookID.Value = "";
-            txtBookNo.Text = txtName.Text = txtCategory.Text = txtPrice.Text = "";
-            lblSuccessMessage.Text = lblErrorMessage.Text = "";
-            btnSave.Text = "Save";
-            //btnDelete.Enabled = false;
+            FillGridView();
+            lblSuccessMessage.Text = "Deleted Successfully";
         }
 
         protected void lnk_OnClick(object sender, EventArgs e)
@@ -116,20 +113,11 @@ namespace BookStore
             //btnDelete.Enabled = true;
         }
 
-        protected void btnDelete_Click(object sender, EventArgs e)
+        protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
-                con.Open();
-            SqlCommand sqlCmd = new SqlCommand("BookDeleteByID", con);
-            sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.Parameters.AddWithValue("@BookID", Convert.ToInt32(hfBookID.Value));
-            sqlCmd.ExecuteNonQuery();
-            con.Close();
-            Clear();
-            FillGridView();
-            lblSuccessMessage.Text = "Deleted Successfully";
+            gvBook.PageIndex = e.NewPageIndex;
+            gvBook.DataBind();
         }
 
-        
     }
 }

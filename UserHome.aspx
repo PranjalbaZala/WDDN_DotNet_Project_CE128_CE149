@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="OnlineBookStoreProject.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserHome.aspx.cs" Inherits="OnlineBookStoreProject.UserHome" %>
 
 <!DOCTYPE html>
-<!-- Home Page Raccon Federation-->
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Online Book Store</title>
+    <title>UserHome Page</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <link href="css/Custom.css" rel="stylesheet" />
@@ -32,8 +32,9 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="Default.aspx">Home</a></li>
-                            <li><a href="SignUp.aspx">SignUp</a> </li>
-                            <li><a href="SignIn.aspx">SignIn</a> </li>
+                            <li><a href="#">Cart</a></li>
+                            <li><a href="#">Orders</a></li>
+                            <li><a href="Default.aspx">Logout</a></li>
                             <li><a href="#">About</a></li>
                         </ul>
                     </div>
@@ -58,7 +59,7 @@
                             <div class="carousel-caption">
                                 <h3>Sherlock Holmes</h3>
                                 <p style="font-size: 18px;">“You see, but you do not observe.”</p>
-                                <p><a class="btn btn-lg btn-primary" href="SignIn.aspx" role="button">Buy Now</a></p>
+                                <p><a class="btn btn-lg btn-primary" href="Action_Adventure.aspx" role="button">Buy Now</a></p>
                             </div>
                         </div>
 
@@ -105,7 +106,7 @@
                         by Mark Twain and many more are some of the best sellers in action and adventure category.....
                     </p>
                     <p>
-                        <a class="btn btn-default " href="SignIn.aspx" role="button">View More &raquo;</a>
+                        <a class="btn btn-default " href="Action_Adventure.aspx" role="button">View More &raquo;</a>
                         <!-- Here &raquo provides >> arrow-->
                     </p>
                 </div>
@@ -121,7 +122,7 @@
                         Books like  Pride and Prejudice by Jane Austen (1813),The Great Gatsby by F. Scott Fitzgerald (1925) are some popular classics......
                     </p>
                     <p>
-                        <a class="btn btn-default " href="SignIn.aspx" role="button">View More &raquo;</a>
+                        <a class="btn btn-default " href="Action_Adventure.aspx" role="button">View More &raquo;</a>
                     </p>
                 </div>
 
@@ -135,7 +136,7 @@
                         comics. Spiderman , Marvel Studios characters comics are some of the good novels books.......
                     </p>
                     <p>
-                        <a class="btn btn-default " href="SignIn.aspx" role="button">View More &raquo;</a>
+                        <a class="btn btn-default " href="Action_Adventure.aspx" role="button">View More &raquo;</a>
                     </p>
                 </div>
 
@@ -149,7 +150,7 @@
                         Books like the Arabian Nights, Alice Adventures in the Wonderland, Marry Poppins are some best sellers.......
                     </p>
                     <p>
-                        <a class="btn btn-default " href="SignIn.aspx" role="button">View More &raquo;</a>
+                        <a class="btn btn-default " href="Action_Adventure.aspx" role="button">View More &raquo;</a>
                     </p>
                 </div>
 
@@ -164,7 +165,7 @@
                         than Stephen KingSome, Bird box , a silent place are some of the movie made from books........
                     </p>
                     <p>
-                        <a class="btn btn-default " href="SignIn.aspx" role="button">View More &raquo;</a>
+                        <a class="btn btn-default " href="Action_Adventure.aspx" role="button">View More &raquo;</a>
                     </p>
                 </div>
 
@@ -179,7 +180,7 @@
                         Sellers Historical books are The Help,One Hundred Years of Solitude,Memoirs of a Geisha.......
                     </p>
                     <p>
-                        <a class="btn btn-default " href="SignIn.aspx" role="button">View More &raquo;</a>
+                        <a class="btn btn-default " href="Action_Adventure.aspx" role="button">View More &raquo;</a>
                     </p>
                 </div>
                 <!--End of book category-->
@@ -194,7 +195,7 @@
             <div class="container ">
 
                 <p class="pull-right "><a href="#">&nbsp; &nbsp; Back to top &nbsp; &nbsp;</a></p>
-                <p class="pull-right "><a href="AdminLogin.aspx">Admin Login  </a></p>
+                
                 <p>
                     &copy;&nbsp; &nbsp;2021 OnlineBookStore.co.in  <a href="Default.aspx">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Home&nbsp;&nbsp; &nbsp;| </a>
                     <a href="#">&nbsp;&nbsp; &nbsp;About&nbsp;&nbsp; &nbsp; | </a><a href="#">&nbsp;&nbsp; &nbsp;Contact&nbsp;&nbsp; &nbsp; | </a><a href="#">&nbsp;&nbsp; &nbsp;Products&nbsp;&nbsp; &nbsp;</a>
@@ -204,7 +205,5 @@
         </footer>
         <!-- Footer Content Ends Here -->
     </form>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>-->
 </body>
 </html>
