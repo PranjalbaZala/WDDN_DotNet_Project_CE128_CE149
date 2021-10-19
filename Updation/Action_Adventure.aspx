@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Action_Adventure.aspx.cs" Inherits="OnlineBookStoreProject.Action_Adventure" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Action_Adventure.aspx.cs" Inherits="OnlineBookStoreProject.Action_Adventure" %>
 
 <!DOCTYPE html>
 
@@ -124,11 +124,8 @@
                     <asp:BoundField DataField="Name" HeaderText="Name" />
                     <asp:BoundField DataField="Category" HeaderText="Category" />
                     <asp:BoundField DataField="Price" HeaderText="Price" />
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lnkView" Style="color: black;" runat="server" CommandArgument='<%# Eval("BookID") %>'>Add to Cart</asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    <asp:HyperLinkField Text="Add to your WishList" DataNavigateUrlFields="BookNo,Name,Category,Price" ControlStyle-ForeColor="Brown"
+                        DataNavigateUrlFormatString="Cart.aspx?BookNo={0}&Name={1}&Category={2}&Price={3}" />
                 </Columns>
             </asp:GridView>
         </div>
