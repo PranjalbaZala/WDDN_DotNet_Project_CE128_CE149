@@ -67,6 +67,10 @@
                     <td>
                         <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></td>
                 </tr>
+                <tr>
+                    <td colspan="3"><b>Total</b></td>
+                    <td><b><asp:Label ID="Label5" runat="server" Text="Label"></asp:Label></b></td>
+                </tr>
             </table>
             <hr />
             <asp:Button ID="Button1" runat="server" Text="Order Now" OnClick="BtnOrder_Click" CssClass="btn btn-success" Style="margin-left: 50px;margin-bottom:60px;" />
