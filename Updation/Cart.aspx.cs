@@ -15,6 +15,7 @@ namespace OnlineBookStoreProject
             Label2.Text = Request.QueryString["Name"];
             Label3.Text = Request.QueryString["Category"];
             Label4.Text = Request.QueryString["Price"];
+            Label5.Text = Request.QueryString["Price"];
         }
 
         protected void BtnOrder_Click(object sender, EventArgs e)
